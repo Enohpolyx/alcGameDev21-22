@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     
     private float xRange = 11.2f;
-    private float yRange = 6.2f;
+    private float yRange = 6.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +33,13 @@ public class EnemyController : MonoBehaviour
 
         if(transform.position.y < -yRange) {
             transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        
+        if(other.gameObject.CompareTag("MagicMissile")){
+            Destroy(gameObject);
         }
     }
 }
