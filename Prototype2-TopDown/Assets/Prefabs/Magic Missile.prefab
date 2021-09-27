@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1508987990371373742}
   - component: {fileID: 1508987990371373741}
   - component: {fileID: 1508987990371373740}
+  - component: {fileID: 2823946460650335708}
   m_Layer: 0
   m_Name: Magic Missile
   m_TagString: MagicMissile
@@ -95,7 +96,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -137,3 +138,19 @@ MonoBehaviour:
   speed: 5
   player: {fileID: 0}
   target: {fileID: 3385819137788189792, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
+--- !u!58 &2823946460650335708
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508987990371373729}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.49999997

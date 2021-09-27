@@ -206,6 +206,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1314643041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3385819137788189794, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
+  m_PrefabInstance: {fileID: 3385819138966306819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1314643047
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314643041}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 5.12}
+  m_EdgeRadius: 0
 --- !u!1 &2032741673
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,7 +334,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -429,11 +460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 933449523257180564, guid: 437e6c66a05be4e679bcc5470b77c8e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.7558
+      value: -3.99
       objectReference: {fileID: 0}
     - target: {fileID: 933449523257180564, guid: 437e6c66a05be4e679bcc5470b77c8e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2658
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 933449523257180564, guid: 437e6c66a05be4e679bcc5470b77c8e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -527,6 +558,22 @@ PrefabInstance:
     - target: {fileID: 3385819137788189794, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
       propertyPath: m_Name
       value: Bad_Guy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3385819137788189797, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2032741675}
+    - target: {fileID: 3385819137788189798, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3385819137788189798, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3385819137788189798, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaeedf96ffb4d4187b57115159eb0078, type: 3}

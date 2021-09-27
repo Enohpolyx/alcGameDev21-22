@@ -28,4 +28,15 @@ public class MissileController : MonoBehaviour
         //transform.position = Vector3.MoveTowards(transform.position, targetLock, speed * Time.deltaTime);
         
     }
+
+    void OnBecameInvisible() {
+         Destroy(gameObject);
+     }
+
+    void OnTriggerEnter2D(Collider2D other) { 
+        
+        if(other.gameObject.CompareTag("Enemy")){
+            Destroy(gameObject);
+        }
+    }
 }
