@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
         hInput = Input.GetAxis("Horizontal");
         vInput = Input.GetAxis("Vertical");
 
+ 
+
         //Makes player move left and right
         transform.Translate(Vector3.right * speed * Time.deltaTime * hInput);
         
