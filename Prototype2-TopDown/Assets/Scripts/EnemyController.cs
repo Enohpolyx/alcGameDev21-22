@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
     private float yRange = 6.0f;
     public float moveSpeed= 5.0f;
     
-    public Transform player;
+    private Transform player;
     private Rigidbody2D rb;
     private Vector2 movement;
     
@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player").transform;
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class EnemyController : MonoBehaviour
         Vector3 direction = player.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
-        rb.rotation = angle;
+        //rb.rotation = angle;
         direction.Normalize();
         movement = direction;
         

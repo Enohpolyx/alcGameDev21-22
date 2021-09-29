@@ -14,24 +14,32 @@ public class MissileController : MonoBehaviour
     public Transform target;
     private Vector3 targetLock;
 
-    private string direction;
+    private string direction = "RIGHT";
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        hInput = Input.GetAxis("Horizontal");
+        vInput = Input.GetAxis("Vertical");
+
         if (vInput > 0){
             direction = "UP";
         }
         
-        if (vInput < 0){
+        else if (vInput < 0){
             direction = "DOWN";
         }
         
-        if (hInput < 0){
+        else if (hInput < 0){
             direction = "LEFT";
         }
         
-        if (hInput > 0){
+        else if (hInput > 0){
+            direction = "RIGHT";
+        }
+
+        else {
             direction = "RIGHT";
         }
     }
@@ -39,10 +47,7 @@ public class MissileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        hInput = Input.GetAxis("Horizontal");
-        vInput = Input.GetAxis("Vertical");
-
+        
         if (direction == "UP"){
             transform.Translate(Vector3.up * speed * Time.deltaTime);
 
@@ -78,7 +83,7 @@ public class MissileController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) { 
         
-        if(other.gameObject.CompareTag("Enemy")){
+        if(other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Obstacle")){
             Destroy(gameObject);
         }
     }
