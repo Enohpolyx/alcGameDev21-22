@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour
 {
     public GameObject Enemy;
-    public float Timer = 0f;
+    public float Timer = 3.0f;
 
     
     

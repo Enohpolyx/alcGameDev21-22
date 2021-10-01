@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissileController : MonoBehaviour
 {
     
-    public float speed = 5.0f;
+    public float speed = 10.0f;
     public float hInput;
     public float vInput;
     
@@ -77,6 +77,12 @@ public class MissileController : MonoBehaviour
         
     }
 
+    void FixedUpdate(){
+        if(!GetComponent<Renderer>().isVisible){
+            Destroy(gameObject);
+        }
+    }    
+    
     void OnBecameInvisible() {
          Destroy(gameObject);
      }
