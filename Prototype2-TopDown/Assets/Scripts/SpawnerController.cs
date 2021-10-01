@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour
 {
     public GameObject Enemy;
-    public float Timer = 3.0f;
+    public float Timer = 1.0f;
 
     
     
@@ -23,7 +23,7 @@ public class SpawnerController : MonoBehaviour
         if (Timer <= 0){
             Instantiate(Enemy, transform.position, Enemy.transform.rotation);
 
-            Timer = 3.0f;
+            Timer = 1.0f;
         }
 
     }

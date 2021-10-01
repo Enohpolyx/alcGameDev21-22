@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour
     public float hInput;
     public float vInput;
 
-    private float xRange = 11.5f;
-    private float yRange = 6.5f;
+    private float xRange = 9.2f;
+    private float yRange = 5f;
 
     public GameObject Projectile;
     private Vector3 offset = new Vector3(1, 0, 0);
@@ -33,20 +33,20 @@ public class PlayerController : MonoBehaviour
         
         //Sets boundaries on left and right sides of the screen
         if(transform.position.x > xRange) {
-            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
         if(transform.position.x < -xRange) {
-            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
 
         //Sets boundaries on top and bottom of screen
         if(transform.position.y > yRange) {
-            transform.position = new Vector3(transform.position.x, -yRange, transform.position.z);
+            transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
         }
 
         if(transform.position.y < -yRange) {
-            transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -yRange, transform.position.z);
         }
 
         if(Input.GetKeyDown(KeyCode.Space)) {
