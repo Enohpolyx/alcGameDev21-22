@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     //Movement
     public float moveSpeed;
+    public float jumpForce;
 
     //Camera Vars
     public float lookSensitivity; //Mouse sensitivity
@@ -36,6 +37,11 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         CamLook();
+        
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump();
+        }
     }
 
     void Move()
@@ -43,13 +49,27 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal") * moveSpeed;
         float z = Input.GetAxis("Vertical") * moveSpeed;
 
-        rigby.velocity = new Vector3(x, rigby.velocity.y, z);
+        //face the direction of the camera and jump that way too
+        Vector3 dir = transform.right * x + transform.forward * z;
+        dir.y = rigby.velocity.y;
+        //Move in the desired direction
+        rigby.velocity = dir;
+    }
+
+    void Jump()
+    {
+        Ray ray = new Ray(transform.position, Vector3.down);
+
+        if (Physics.Raycast(ray, 1.1f))
+        {
+            rigby.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
     }
 
     void CamLook()
     {
         float y = Input.GetAxis("Mouse X") * lookSensitivity;
-        rotX = Input.GetAxis("Mouse Y") * lookSensitivity;
+        rotX += Input.GetAxis("Mouse Y") * lookSensitivity;
 
         //Clamps the camera's up and down rotation
         rotX = Mathf.Clamp(rotX, minLookX, maxLookX);
