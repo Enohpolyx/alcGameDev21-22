@@ -18,12 +18,18 @@ public class PlayerController : MonoBehaviour
     private Camera cam;
     private Rigidbody rigby;
 
+    private WeaponController weapon;
+
     // Called Before Start
     void Awake()
     {
         //Get components
         cam = Camera.main;
         rigby = GetComponent<Rigidbody>();
+        weapon = GetComponent<WeaponController>();
+
+        //disable cursor
+        Cursor.lockState = CursorLockMode.Locked;
     }
     
     // Start is called before the first frame update
@@ -41,6 +47,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             Jump();
+        }
+
+        if(Input.GetButton("Fire1"))
+        {
+            if(weapon.CanShoot())
+            {
+                weapon.Shoot();
+            }
         }
     }
 
