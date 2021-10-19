@@ -9,7 +9,10 @@ public class WeaponController : MonoBehaviour
     
     public GameObject projPrefab;
     public Transform muzzle;
+    public Transform muzzle2;
     public float bulletSpeed;
+
+    private string lastUsed;
     
     public int curAmmo;
     public int maxAmmo;
@@ -25,6 +28,7 @@ public class WeaponController : MonoBehaviour
         if(GetComponent<PlayerController>())
         {
             isPlayer = true;
+            lastUsed = "Right";
         }
     }
 
@@ -45,22 +49,24 @@ public class WeaponController : MonoBehaviour
     {
         lastShootTime = Time.time;
         curAmmo--;
-        GameObject projectile = Instantiate(projPrefab, muzzle.position, muzzle.rotation);
+        
+        if(lastUsed == "Right"){
+
+            GameObject projectile = Instantiate(projPrefab, muzzle.position, muzzle.rotation);
+            projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+            lastUsed = "Left";
+        }
+
+        else if(lastUsed == "Left"){
+            GameObject projectile = Instantiate(projPrefab, muzzle2.position, muzzle.rotation);
+            projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+            lastUsed = "Right";
+
+        }
 
         //set the velocity
-        projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+        //projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
 
     }
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
