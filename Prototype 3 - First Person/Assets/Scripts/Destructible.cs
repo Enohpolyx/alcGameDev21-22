@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
+    public int health;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +19,15 @@ public class Destructible : MonoBehaviour
         
     }
 
-    void onTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
         {
-            if(other.gameObject.CompareTag("Projectile")){
+            if(other.gameObject.CompareTag("Projectile") & health <= 1 ){
                 Destroy(gameObject);
-        }
+            }
+
+            else{
+                health--;
+            }
     }
     
 }

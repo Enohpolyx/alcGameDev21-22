@@ -9,4 +9,11 @@ public class ProjectileController : MonoBehaviour
     void OnBecameInvisible(){
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter(Collider other){
+        if(!other.gameObject.CompareTag("Player")){
+                Destroy(gameObject);
+            }
+    }
+
 }
