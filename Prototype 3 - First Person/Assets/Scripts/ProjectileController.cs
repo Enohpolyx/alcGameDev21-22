@@ -7,12 +7,12 @@ public class ProjectileController : MonoBehaviour
     
     //Destroys object when it disappears
     void OnBecameInvisible(){
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other){
         if(!other.gameObject.CompareTag("Player")){
-                Destroy(gameObject);
+                gameObject.SetActive(false);;
             }
     }
 

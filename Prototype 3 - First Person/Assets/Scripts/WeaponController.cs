@@ -7,7 +7,7 @@ public class WeaponController : MonoBehaviour
     
 
     
-    public GameObject projPrefab;
+    public ObjectPool projPool;
     public Transform muzzle;
     public Transform muzzle2;
     public float bulletSpeed;
@@ -52,14 +52,23 @@ public class WeaponController : MonoBehaviour
         
         if(lastUsed == "Right"){
 
-            GameObject projectile = Instantiate(projPrefab, muzzle.position, muzzle.rotation);
+            // Retrieve object from the pool and fire it
+            GameObject projectile = projPool.GetObject();
+            projectile.transform.position = muzzle.position;
+            projectile.transform.rotation = muzzle.rotation;
+
             projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+            
             lastUsed = "Left";
         }
 
         else if(lastUsed == "Left"){
-            GameObject projectile = Instantiate(projPrefab, muzzle2.position, muzzle.rotation);
+            GameObject projectile = projPool.GetObject();
+            projectile.transform.position = muzzle2.position;
+            projectile.transform.rotation = muzzle2.rotation;
+
             projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
+            
             lastUsed = "Right";
 
         }
