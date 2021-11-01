@@ -22,6 +22,9 @@ public class WeaponController : MonoBehaviour
     private float lastShootTime;
     private bool isPlayer;
 
+    private Rigidbody daRigidbody;
+
+
     void Awake()
     {
         //is projectile attatched to the player
@@ -55,7 +58,12 @@ public class WeaponController : MonoBehaviour
             // Retrieve object from the pool and fire it
             GameObject projectile = projPool.GetObject();
             projectile.transform.position = muzzle.position;
-            projectile.transform.rotation = muzzle.rotation;
+            //projectile.transform.rotation = muzzle.rotation;
+
+            projectile.transform.eulerAngles = new Vector3(muzzle.transform.eulerAngles.x + 90, muzzle.transform.eulerAngles.y, muzzle.transform.eulerAngles.z);
+            
+            daRigidbody = projectile.GetComponent<Rigidbody>();
+            daRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 
             projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
             
@@ -65,8 +73,13 @@ public class WeaponController : MonoBehaviour
         else if(lastUsed == "Left"){
             GameObject projectile = projPool.GetObject();
             projectile.transform.position = muzzle2.position;
-            projectile.transform.rotation = muzzle2.rotation;
+            // projectile.transform.rotation = muzzle2.rotation;
 
+            projectile.transform.eulerAngles = new Vector3(muzzle.transform.eulerAngles.x + 90, muzzle.transform.eulerAngles.y, muzzle.transform.eulerAngles.z);
+
+            daRigidbody = projectile.GetComponent<Rigidbody>();
+            daRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            
             projectile.GetComponent<Rigidbody>().velocity = muzzle.forward * bulletSpeed;
             
             lastUsed = "Right";

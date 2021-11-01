@@ -55,9 +55,41 @@ public class EnemyController : MonoBehaviour
             path.RemoveAt(0);
     }
 
+    
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+
+        if(curHP <= 0)
+            Ded();
+    }
+    
+    
+    void Ded()
+    {
+        Destroy(gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {
+        //Look at target
+        Vector3 dir = (target.transform.position - transform.position).normalized;
+        float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+
+        transform.eulerAngles = Vector3.up * angle;
         
+        //Get distance from enemy to player
+        float dist = Vector3.Distance(transform.position, target.transform.position);
+        
+        if(dist <= attackRange & weapon.CanShoot())
+        {
+                weapon.Shoot();
+        }
+
+        else
+        {
+            ChaseTarget();
+        }
     }
 }
