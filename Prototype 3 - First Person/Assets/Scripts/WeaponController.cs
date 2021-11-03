@@ -31,8 +31,8 @@ public class WeaponController : MonoBehaviour
         if(GetComponent<PlayerController>())
         {
             isPlayer = true;
-            lastUsed = "Right";
         }
+        lastUsed = "Right";
     }
 
     public bool CanShoot()

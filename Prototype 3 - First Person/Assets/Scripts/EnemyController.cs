@@ -22,6 +22,10 @@ public class EnemyController : MonoBehaviour
     private WeaponController weapon;
     private GameObject target;
 
+    private bool isGlowing = false;
+    private MeshRenderer meshy;
+    public GameObject Eye;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,7 @@ public class EnemyController : MonoBehaviour
         // Gather the Components
         weapon = GetComponent<WeaponController>();
         target = FindObjectOfType<PlayerController>().gameObject;
+        meshy = Eye.GetComponent<MeshRenderer>();
 
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
@@ -82,14 +87,29 @@ public class EnemyController : MonoBehaviour
         //Get distance from enemy to player
         float dist = Vector3.Distance(transform.position, target.transform.position);
         
-        if(dist <= attackRange & weapon.CanShoot())
+        if(dist <= attackRange)
         {
+                
+            if(!isGlowing)
+            {
+                meshy.material.EnableKeyword("_EMISSION");
+                isGlowing = true;
+            }
+            if(weapon.CanShoot())
+            {
                 weapon.Shoot();
+            }
         }
 
         else
         {
             ChaseTarget();
+            
+            if(isGlowing)
+            {
+                meshy.material.DisableKeyword("_EMISSION");
+                isGlowing = false;
+            }
         }
     }
 }
