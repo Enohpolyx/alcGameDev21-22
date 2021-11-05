@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 711936205}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -901,6 +901,8 @@ MonoBehaviour:
   lookSensitivity: 10
   maxLookX: 45
   minLookX: -45
+  curHP: 400
+  maxHP: 400
 --- !u!114 &711936204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2089,7 +2091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847539341}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0.09474688, y: 1.0997646, z: 0.031364117}
+  m_LocalPosition: {x: 0.09474688, y: 1.57, z: 0.031364117}
   m_LocalScale: {x: 5, y: 5.2637124, z: 2.8684525}
   m_Children: []
   m_Father: {fileID: 580185612}
@@ -2276,7 +2278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088801910}
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -0.089482956, y: 0.98, z: 0.2296214}
+  m_LocalPosition: {x: -0.089482956, y: 1.58, z: 0.2296214}
   m_LocalScale: {x: 5, y: 5.2637124, z: 2.8684525}
   m_Children: []
   m_Father: {fileID: 1262623208}

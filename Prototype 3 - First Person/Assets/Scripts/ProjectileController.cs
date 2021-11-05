@@ -4,16 +4,62 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    
-    //Destroys object when it disappears
-    void OnBecameInvisible(){
-        gameObject.SetActive(false);
+    public int damage;
+    public float lifetime;
+    private float shootTime;
+
+
+    void OnEnable()
+    {
+        shootTime = Time.time;
     }
 
-    void OnTriggerEnter(Collider other){
-        if(!other.gameObject.CompareTag("Player")){
-                gameObject.SetActive(false);;
-            }
+
+    void Update()
+    {
+        if(Time.time - shootTime >= lifetime)
+            gameObject.SetActive(false);
+    }    
+    
+
+    void OnTriggerEnter(Collider other)
+    {
+        //Did we hit the target?
+        // try
+        // {    if(other.gameObject.CompareTag("Player"))
+        //             other.GetComponent<PlayerController>().TakeDamage(damage);
+            
+        //     else if(other.CompareTag("Enemy"))
+        //             other.GetComponent<EnemyController>().TakeDamage(damage);
+            
+        //     else if(other.CompareTag("Destructible"))
+        //         other.GetComponent<Destructible>().TakeDamage(damage);
+
+        //     else
+        //         gameObject.SetActive(false);
+        // }
+        // catch
+        // {
+        //     gameObject.SetActive(false);
+        // }
+
+        // finally
+        // {
+        //     gameObject.SetActive(false);
+        // }
+
+    if(other.gameObject.CompareTag("Player"))
+        other.GetComponent<PlayerController>().TakeDamage(damage);
+            
+    else if(other.CompareTag("Enemy"))
+        other.GetComponent<EnemyController>().TakeDamage(damage);
+            
+    else if(other.CompareTag("Destructible"))
+        other.GetComponent<Destructible>().TakeDamage(damage);
+
+    else
+        gameObject.SetActive(false);
+
     }
 
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Destructible : MonoBehaviour
 {
-    public int health;
+    public int maxHP;
+    public int curHP;
     
 
     // Start is called before the first frame update
@@ -19,15 +20,28 @@ public class Destructible : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
-        {
-            if(other.gameObject.CompareTag("Projectile") & health <= 1 ){
-                Destroy(gameObject);
-            }
-
-            else{
-                health--;
-            }
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        
+        if(curHP <= 0)
+            Ded();
     }
+
+    void Ded()
+    {
+        Destroy(gameObject);
+    }
+
+    // void OnTriggerEnter(Collider other)
+    //     {
+    //         if(other.gameObject.CompareTag("Projectile") & health <= 1 ){
+    //             Destroy(gameObject);
+    //         }
+
+    //         else{
+    //             health--;
+    //         }
+    // }
     
 }

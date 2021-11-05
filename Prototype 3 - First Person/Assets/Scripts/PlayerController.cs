@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Movement
+    [Header("Movement")]
     public float moveSpeed;
     public float jumpForce;
 
-    //Camera Vars
+    [Header("Camera")]
     public float lookSensitivity; //Mouse sensitivity
     public float maxLookX; //Lowest down position
     public float minLookX; //Highest up position
@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigby;
 
     private WeaponController weapon;
+
+    [Header("Stats")]
+    public int curHP;
+    public int maxHP;
+
 
     // Called Before Start
     void Awake()
@@ -32,6 +37,20 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
     
+
+    public void TakeDamage(int damage)
+    {
+        curHP -= damage;
+        
+        if(curHP <= 0)
+            Ded();
+    }
+
+    void Ded()
+    {
+
+    }
+
 
     // Update is called once per frame
     void Update()
