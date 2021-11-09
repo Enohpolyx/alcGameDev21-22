@@ -64,7 +64,7 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         curHP -= damage;
-
+        
         if(curHP <= 0)
             Ded();
     }
@@ -112,4 +112,12 @@ public class EnemyController : MonoBehaviour
             }
         }
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Projectile"))
+            TakeDamage(1);
+            //other.setActive(false);
+    }
+
 }

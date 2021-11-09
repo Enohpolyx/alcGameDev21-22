@@ -106,4 +106,11 @@ public class PlayerController : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(-rotX, 0, 0);
         transform.eulerAngles += Vector3.up * y;
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Projectile"))
+            TakeDamage(1);
+            //other.setActive(false);
+    }
 }

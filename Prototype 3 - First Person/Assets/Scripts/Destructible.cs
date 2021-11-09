@@ -44,4 +44,11 @@ public class Destructible : MonoBehaviour
     //         }
     // }
     
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Projectile"))
+            TakeDamage(1);
+            //other.setActive(false);
+    }
+
 }
