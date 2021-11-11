@@ -113,4 +113,14 @@ public class PlayerController : MonoBehaviour
             TakeDamage(1);
             //other.setActive(false);
     }
+
+    public void GiveHealth(int amountToGive)
+    {
+        curHP = Mathf.Clamp(curHP + amountToGive, 0, maxHP);
+    }
+
+    public void GiveAmmo(int amountToGive)
+    {
+        weapon.curAmmo = Mathf.Clamp(weapon.curAmmo + amountToGive, 0, weapon.maxAmmo);
+    }
 }
