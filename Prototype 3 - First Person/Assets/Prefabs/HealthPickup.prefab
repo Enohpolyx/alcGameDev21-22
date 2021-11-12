@@ -108,8 +108,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.7966607
-  m_Center: {x: 0, y: 0, z: -0.107874945}
+  m_Radius: 1.4476155
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-5843672728126755038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   value: 50
-  rotationSpeed: 10
-  bobSpeed: 5
-  bobHeight: 1
+  rotationSpeed: 30
+  bobSpeed: 0.5
+  bobHeight: 0.3

@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
 
         // Move towards the closest path
         transform.position = Vector3.MoveTowards(transform.position, path[0] + new Vector3(0, yPathOffset, 0), moveSpeed * Time.deltaTime);
+        
 
         if(transform.position == path[0] + new Vector3(0, yPathOffset, 0))
             path.RemoveAt(0);
@@ -83,6 +84,9 @@ public class EnemyController : MonoBehaviour
         float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
 
         transform.eulerAngles = Vector3.up * angle;
+
+        // Look at the target
+        transform.LookAt(target.transform);
         
         //Get distance from enemy to player
         float dist = Vector3.Distance(transform.position, target.transform.position);
