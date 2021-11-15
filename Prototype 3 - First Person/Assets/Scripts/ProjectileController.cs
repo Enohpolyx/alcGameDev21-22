@@ -48,14 +48,21 @@ public class ProjectileController : MonoBehaviour
         //     gameObject.SetActive(false);
         // }
 
-    // if(other.gameObject.CompareTag("Player"))
-    //     other.GetComponent<PlayerController>().TakeDamage(damage);
+    if(other.gameObject.CompareTag("Player"))
+        other.GetComponent<PlayerController>().TakeDamage(damage);
             
-    // if(other.CompareTag("Enemy"))
-    //     other.GetComponent<EnemyController>().TakeDamage(damage);
+    else if(other.CompareTag("Enemy"))
+        other.GetComponent<EnemyController>().TakeDamage(damage);
             
-    // if(other.CompareTag("Destructible"))
-    //     other.GetComponent<Destructible>().TakeDamage(damage);
+    else if(other.CompareTag("Destructible"))
+        other.GetComponent<Destructible>().TakeDamage(damage);
+    else if(other.CompareTag("Prezzie"))
+        other.GetComponent<Prezzie>().TakeDamage(damage);
+    
+    //Broken
+    // else if(other.gameObject.CompareTag("Eye"))
+    //     other.GetComponentInParent<EnemyController>().TakeDamage(damage*2);
+
 
     
     gameObject.SetActive(false);

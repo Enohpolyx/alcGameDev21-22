@@ -27,14 +27,21 @@ public class EnemyController : MonoBehaviour
     public GameObject Eye;
 
 
-    // Start is called before the first frame update
-    void Start()
+
+    void Awake()
     {
-        // Gather the Components
         weapon = GetComponent<WeaponController>();
         target = FindObjectOfType<PlayerController>().gameObject;
         meshy = Eye.GetComponent<MeshRenderer>();
 
+
+        UpdatePath();
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Gather the Components
+        
         InvokeRepeating("UpdatePath", 0.0f, 0.5f);
     }
 
@@ -117,11 +124,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("Projectile"))
-            TakeDamage(1);
-            //other.setActive(false);
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("Projectile"))
+    //         TakeDamage(1);
+    //         //other.setActive(false);
+    // }
 
 }

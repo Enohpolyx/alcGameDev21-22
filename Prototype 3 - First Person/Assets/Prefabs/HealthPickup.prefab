@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  value: 50
+  value: 40
   rotationSpeed: 30
   bobSpeed: 0.5
   bobHeight: 0.3

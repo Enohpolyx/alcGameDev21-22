@@ -7,6 +7,8 @@ TagManager:
   - Projectile
   - Destructible
   - Enemy
+  - Prezzie
+  - Eye
   layers:
   - Default
   - TransparentFX

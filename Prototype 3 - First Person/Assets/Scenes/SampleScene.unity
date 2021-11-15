@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657624, g: 0.49641156, b: 0.5748151, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657642, g: 0.49641138, b: 0.5748146, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -833,7 +833,6 @@ GameObject:
   - component: {fileID: 580185612}
   - component: {fileID: 580185611}
   - component: {fileID: 580185610}
-  - component: {fileID: 580185609}
   m_Layer: 0
   m_Name: Lefty
   m_TagString: Untagged
@@ -841,20 +840,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &580185609
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 580185608}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &580185610
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2314,7 +2299,6 @@ GameObject:
   - component: {fileID: 1262623208}
   - component: {fileID: 1262623211}
   - component: {fileID: 1262623210}
-  - component: {fileID: 1262623209}
   m_Layer: 0
   m_Name: Righty
   m_TagString: Untagged
@@ -2337,20 +2321,6 @@ Transform:
   m_Father: {fileID: 963194228}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
---- !u!136 &1262623209
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262623207}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &1262623210
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3607,6 +3577,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1103367626}
     m_Modifications:
+    - target: {fileID: 160405517272516726, guid: 6cbbd6c9c720b144398582412af487d1, type: 3}
+      propertyPath: spawnSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 160405517272516729, guid: 6cbbd6c9c720b144398582412af487d1, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -3667,6 +3641,22 @@ PrefabInstance:
     - target: {fileID: 1206257097359807512, guid: 86368d4f7d226419a8c473ffef5f2309, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206257097359807515, guid: 86368d4f7d226419a8c473ffef5f2309, type: 3}
+      propertyPath: curHP
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206257097359807515, guid: 86368d4f7d226419a8c473ffef5f2309, type: 3}
+      propertyPath: maxHP
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206257097359807517, guid: 86368d4f7d226419a8c473ffef5f2309, type: 3}
+      propertyPath: curAmmo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1206257097359807517, guid: 86368d4f7d226419a8c473ffef5f2309, type: 3}
+      propertyPath: infiniteAmmo
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1206257097359807584, guid: 86368d4f7d226419a8c473ffef5f2309, type: 3}
       propertyPath: m_RootOrder

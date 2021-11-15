@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6554142396431530094}
   m_Layer: 0
   m_Name: Prezzie
-  m_TagString: Destructible
+  m_TagString: Prezzie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
