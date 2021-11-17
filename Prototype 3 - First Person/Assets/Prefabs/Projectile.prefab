@@ -125,5 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6173ae23c9e494610b48d3b985599ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  lifetime: 2
+  damage: 1
+  lifetime: 1
+  hitParticle: {fileID: 3235875308934910035, guid: 62ee7fb20040e496fb4b03be11938ed0, type: 3}

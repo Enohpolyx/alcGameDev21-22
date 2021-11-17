@@ -8,6 +8,8 @@ public class ProjectileController : MonoBehaviour
     public float lifetime;
     private float shootTime;
 
+    public GameObject hitParticle;
+
 
     void OnEnable()
     {
@@ -48,6 +50,12 @@ public class ProjectileController : MonoBehaviour
         //     gameObject.SetActive(false);
         // }
 
+    //Create hit particle effect
+    GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+    //Destroy particle effect after .5 seconds
+    Destroy(obj, 0.5f);
+
+    
     if(other.gameObject.CompareTag("Player"))
         other.GetComponent<PlayerController>().TakeDamage(damage);
             
@@ -56,6 +64,7 @@ public class ProjectileController : MonoBehaviour
             
     else if(other.CompareTag("Destructible"))
         other.GetComponent<Destructible>().TakeDamage(damage);
+    
     else if(other.CompareTag("Prezzie"))
         other.GetComponent<Prezzie>().TakeDamage(damage);
     
@@ -63,10 +72,8 @@ public class ProjectileController : MonoBehaviour
     // else if(other.gameObject.CompareTag("Eye"))
     //     other.GetComponentInParent<EnemyController>().TakeDamage(damage*2);
 
-
-    
-    gameObject.SetActive(false);
-
+    else
+        gameObject.SetActive(false);
     }
 
 }

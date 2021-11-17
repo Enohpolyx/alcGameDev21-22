@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  lifetime: 2
+  lifetime: 0.5
+  hitParticle: {fileID: 3235875308934910035, guid: 62ee7fb20040e496fb4b03be11938ed0, type: 3}
 --- !u!1 &90459749342424327
 GameObject:
   m_ObjectHideFlags: 0
