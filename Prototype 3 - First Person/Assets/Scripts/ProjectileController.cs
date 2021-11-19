@@ -26,36 +26,13 @@ public class ProjectileController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Did we hit the target?
-        // try
-        // {    if(other.gameObject.CompareTag("Player"))
-        //             other.GetComponent<PlayerController>().TakeDamage(damage);
-            
-        //     else if(other.CompareTag("Enemy"))
-        //             other.GetComponent<EnemyController>().TakeDamage(damage);
-            
-        //     else if(other.CompareTag("Destructible"))
-        //         other.GetComponent<Destructible>().TakeDamage(damage);
-
-        //     else
-        //         gameObject.SetActive(false);
-        // }
-        // catch
-        // {
-        //     gameObject.SetActive(false);
-        // }
-
-        // finally
-        // {
-        //     gameObject.SetActive(false);
-        // }
-
     //Create hit particle effect
     GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
     //Destroy particle effect after .5 seconds
     Destroy(obj, 0.5f);
 
     
+    //Detect which object is hit
     if(other.gameObject.CompareTag("Player"))
         other.GetComponent<PlayerController>().TakeDamage(damage);
             

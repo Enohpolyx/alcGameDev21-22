@@ -45,6 +45,7 @@ public class Pickup : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //If the player touches it, determine which pickup it is and award the player
         if(other.CompareTag("Player"))
             {
                 PlayerController player = other.GetComponent<PlayerController>();
