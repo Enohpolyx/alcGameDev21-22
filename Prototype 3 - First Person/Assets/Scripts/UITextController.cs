@@ -9,6 +9,7 @@ public class UITextController : MonoBehaviour
     public WeaponController weapon;
     public Text textThing;
     public Text ammoTextThing;
+    //public TextMeshProUGUI scoreTextThing;
     private string HP;
     private string Ammo;
     
