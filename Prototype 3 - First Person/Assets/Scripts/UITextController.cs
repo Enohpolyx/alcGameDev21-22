@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UITextController : MonoBehaviour
 {
     public PlayerController player;
     public WeaponController weapon;
     public Text textThing;
-    public Text ammoTextThing;
-    //public TextMeshProUGUI scoreTextThing;
+    
+    public TextMeshProUGUI ammoTextThingPro;
+    public TextMeshProUGUI scoreTextThing;
+    
     private string HP;
-    private string Ammo;
     
     
 
@@ -33,7 +35,8 @@ public class UITextController : MonoBehaviour
         HP = "HP: " + player.curHP.ToString();
         textThing.text = HP;
 
-        Ammo = "Ammo: " + weapon.curAmmo.ToString();
-        ammoTextThing.text = Ammo;
+        string AmmoTMP = "Ammo: " + weapon.curAmmo.ToString() + "/" + weapon.maxAmmo.ToString();
+        ammoTextThingPro.text = AmmoTMP;
+
     }
 }
