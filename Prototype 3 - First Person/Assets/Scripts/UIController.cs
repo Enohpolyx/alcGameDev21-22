@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+
 public class UIController : MonoBehaviour
 {
     [Header("HUD")]
@@ -69,7 +70,7 @@ public class UIController : MonoBehaviour
 
     public void OnResumeButton()
     {
-
+        GameManager.instance.TogglePauseGame();
     }
 
     public void OnRestartButton()

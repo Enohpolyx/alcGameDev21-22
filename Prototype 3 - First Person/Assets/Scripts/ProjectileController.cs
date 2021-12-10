@@ -34,23 +34,35 @@ public class ProjectileController : MonoBehaviour
     
     //Detect which object is hit
     if(other.gameObject.CompareTag("Player"))
+        {
         other.GetComponent<PlayerController>().TakeDamage(damage);
+        gameObject.SetActive(false);
+        }
             
     else if(other.CompareTag("Enemy"))
+        {
         other.GetComponent<EnemyController>().TakeDamage(damage);
+        gameObject.SetActive(false);
+        }
             
     else if(other.CompareTag("Destructible"))
+        {
         other.GetComponent<Destructible>().TakeDamage(damage);
+        gameObject.SetActive(false);
+        }
     
     else if(other.CompareTag("Prezzie"))
+        {
         other.GetComponent<Prezzie>().TakeDamage(damage);
+        gameObject.SetActive(false);
+        }
     
     //Broken
     // else if(other.gameObject.CompareTag("Eye"))
     //     other.GetComponentInParent<EnemyController>().TakeDamage(damage*2);
 
-    else
-        gameObject.SetActive(false);
+    // else
+    //     gameObject.SetActive(false);
     }
 
 }

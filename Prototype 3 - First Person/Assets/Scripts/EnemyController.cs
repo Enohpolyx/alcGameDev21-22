@@ -26,6 +26,8 @@ public class EnemyController : MonoBehaviour
     private MeshRenderer meshy;
     public GameObject Eye;
 
+    private Rigidbody rigby;
+
 
 
     void Awake()
@@ -33,6 +35,8 @@ public class EnemyController : MonoBehaviour
         weapon = GetComponent<WeaponController>();
         target = FindObjectOfType<PlayerController>().gameObject;
         meshy = Eye.GetComponent<MeshRenderer>();
+
+        rigby = GetComponent<Rigidbody>();
 
 
         UpdatePath();
@@ -80,6 +84,11 @@ public class EnemyController : MonoBehaviour
     
     void Ded()
     {
+        //rigby.constraints = Rigidbody.contraints.None;
+        rigby.AddForce(Vector3.back * 10, ForceMode.Impulse);
+        rigby.AddForce(Vector3.up * 5, ForceMode.Impulse);
+        
+        GameManager.instance.AddScore(scoreToGive);
         Destroy(gameObject);
     }
 

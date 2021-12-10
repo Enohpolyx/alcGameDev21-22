@@ -84,6 +84,8 @@ public class WeaponController : MonoBehaviour
             
             lastUsed = "Right";
 
+            if(isPlayer)
+                UIController.instance.UpdateAmmoText(curAmmo, maxAmmo);
         }
 
         //set the velocity

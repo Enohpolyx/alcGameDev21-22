@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         curHP -= damage;
-        
+        UIController.instance.UpdateHPFill(curHP, maxHP);
+
         if(curHP <= 0)
             Ded();
     }
@@ -117,10 +118,12 @@ public class PlayerController : MonoBehaviour
     public void GiveHealth(int amountToGive)
     {
         curHP = Mathf.Clamp(curHP + amountToGive, 0, maxHP);
+        UIController.instance.UpdateHPFill(curHP, maxHP);
     }
 
     public void GiveAmmo(int amountToGive)
     {
         weapon.curAmmo = Mathf.Clamp(weapon.curAmmo + amountToGive, 0, weapon.maxAmmo);
+        UIController.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
     }
 }
