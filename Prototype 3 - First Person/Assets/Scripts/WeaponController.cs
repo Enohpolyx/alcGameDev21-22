@@ -24,6 +24,9 @@ public class WeaponController : MonoBehaviour
 
     private Rigidbody daRigidbody;
 
+    public AudioClip shootsfx;
+    private AudioSource audioSource;
+
 
     void Awake()
     {
@@ -32,6 +35,7 @@ public class WeaponController : MonoBehaviour
         {
             isPlayer = true;
         }
+        audioSource = GetComponent<AudioSource>();
         lastUsed = "Right";
     }
 
@@ -53,6 +57,8 @@ public class WeaponController : MonoBehaviour
         lastShootTime = Time.time;
         curAmmo--;
         
+        audioSource.PlayOneShot(shootsfx);
+
         if(lastUsed == "Right"){
 
             // Retrieve object from the pool and fire it

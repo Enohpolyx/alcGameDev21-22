@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Time.timeScale = 1.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Cancel"))
+        if(Input.GetButtonDown("Cancel"))
         {
             TogglePauseGame();
         }
@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
 
         // Toggle pause menu
         UIController.instance.TogglePauseMenu(gamePaused);
+
+        // Toggle cursor
+        Cursor.lockState = gamePaused == true? CursorLockMode.None : CursorLockMode.Locked;
     }
 
     public void AddScore(int score)
@@ -58,5 +61,16 @@ public class GameManager : MonoBehaviour
     {
         // Set the screen
         UIController.instance.SetEndGameScreen(true, curScore);    
+        Time.timeScale = 0.0f;
+        gamePaused = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void LoseGame()
+    {
+        UIController.instance.SetEndGameScreen(false, curScore);
+        Time.timeScale = 0.0f;
+        gamePaused = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

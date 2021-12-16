@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIController : MonoBehaviour
 {
     [Header("HUD")]
+        public GameObject HUD;
         public TextMeshProUGUI scoreText;
         public TextMeshProUGUI ammoText;
         public Image healthBarFill;
@@ -26,6 +27,9 @@ public class UIController : MonoBehaviour
     void Awake()
     {
         instance = this;
+        endGameScreen.SetActive(false);
+        pauseMenu.SetActive(false);
+        HUD.SetActive(true);
     }
 
     // Start is called before the first frame update
@@ -42,7 +46,7 @@ public class UIController : MonoBehaviour
 
     public void UpdateHPFill(int curHP, int maxHP)
     {
-        healthBarFill.fillAmount = (float)curHP / (float)maxHP;
+        healthBarFill.fillAmount = curHP / maxHP;
     }
 
     public void UpdateScoreText(int score)
@@ -65,7 +69,7 @@ public class UIController : MonoBehaviour
         endGameScreen.SetActive(true);
         endGameHeaderText.text = won == true? "You Win" : "You Lose!";
         endGameHeaderText.color = won == true? Color.green : Color.red;
-        endGameScoreText.text = "<b>Score</b>\n" + score;
+        endGameScoreText.text = "<b>Score</b>\n" + score.ToString();
     }
 
     public void OnResumeButton()
