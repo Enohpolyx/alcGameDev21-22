@@ -57,7 +57,7 @@ public class WeaponController : MonoBehaviour
         lastShootTime = Time.time;
         curAmmo--;
         
-        audioSource.PlayOneShot(shootsfx);
+        audioSource.PlayOneShot(shootsfx, 1f);
 
         if(lastUsed == "Right"){
 

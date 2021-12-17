@@ -56,6 +56,7 @@ public class Pickup : MonoBehaviour
                 {
                     case PickupType.Health:
                         player.GiveHealth(value);
+                        UIController.instance.IncreaseHPFill(value);
                         break;
                     case PickupType.Ammo:
                         player.GiveAmmo(value);

@@ -11,6 +11,7 @@ public class SpawnerController : MonoBehaviour
 
     public float curHP;
     private bool isDead = false;
+    public int scoreToGive;
 
     public bool inRange;
     
@@ -53,6 +54,7 @@ public class SpawnerController : MonoBehaviour
     void Ded()
     {
         isDead = true;
+        GameManager.instance.AddScore(scoreToGive);
         gameObject.SetActive(false);
     }
 

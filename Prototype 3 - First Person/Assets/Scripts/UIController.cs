@@ -44,9 +44,15 @@ public class UIController : MonoBehaviour
         
     }
 
-    public void UpdateHPFill(int curHP, int maxHP)
+    public void DecreaseHPFill(int toDecrease)
     {
-        healthBarFill.fillAmount = curHP / maxHP;
+        //healthBarFill.fillAmount = curHP / maxHP;
+        healthBarFill.fillAmount -= toDecrease/100f;
+    }
+
+    public void IncreaseHPFill(int toIncrease)
+    {
+        healthBarFill.fillAmount += toIncrease/100f;
     }
 
     public void UpdateScoreText(int score)

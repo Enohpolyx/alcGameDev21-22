@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     public int curScore;
 
     public bool gamePaused;
+
+    private AudioSource audioSource;
+    public AudioClip pauseSFX;
     
     // Instance of Game Manager
     public static GameManager instance;
@@ -16,6 +19,7 @@ public class GameManager : MonoBehaviour
     {
         // Set the instance of this script
         instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
     
     // Start is called before the first frame update
@@ -36,6 +40,14 @@ public class GameManager : MonoBehaviour
     public void TogglePauseGame()
     {
         gamePaused = !gamePaused;
+
+        if(gamePaused)
+            audioSource.volume /= 4;
+        else
+            audioSource.volume *= 4;
+
+        audioSource.PlayOneShot(pauseSFX, 1f);
+
         // If gamePaused == true, then set timeScale to 0, otherwise, set timeScale to 1
         Time.timeScale = gamePaused == true? 0.0f : 1.0f;
 

@@ -113,6 +113,7 @@ MonoBehaviour:
   spawnSpeed: 10
   spawnRange: 20
   curHP: 20
+  scoreToGive: 500
   inRange: 0
 --- !u!1 &9018496088495884877
 GameObject:

@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //Initailize the UI
-        UIController.instance.UpdateHPFill(curHP, maxHP);
+        //UIController.instance.UpdateHPFill(curHP, maxHP);
         UIController.instance.UpdateScoreText(0);
         UIController.instance.UpdateAmmoText(weapon.curAmmo, weapon.maxAmmo);
     }
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         curHP -= damage;
-        UIController.instance.UpdateHPFill(curHP, maxHP);
+        UIController.instance.DecreaseHPFill(damage);
 
         if(curHP <= 0)
             Ded();
@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // Update is called once per frame
+    // Decreas is called once per frame
     void Update()
     {
         // Don't do anything when game is paused
@@ -130,7 +130,6 @@ public class PlayerController : MonoBehaviour
     public void GiveHealth(int amountToGive)
     {
         curHP = Mathf.Clamp(curHP + amountToGive, 0, maxHP);
-        UIController.instance.UpdateHPFill(curHP, maxHP);
     }
 
     public void GiveAmmo(int amountToGive)
