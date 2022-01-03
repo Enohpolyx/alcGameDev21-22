@@ -2174,7 +2174,7 @@ MonoBehaviour:
   bulletSpeed: 40
   curAmmo: 200
   maxAmmo: 200
-  infiniteAmmo: 1
+  infiniteAmmo: 0
   shootRate: 0.09
   shootsfx: {fileID: 8300000, guid: ac2aec0affd21cf45bb3e7d111d93693, type: 3}
 --- !u!114 &711936205
