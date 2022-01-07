@@ -13,6 +13,10 @@ public class Grog : MonoBehaviour
 
     public bool lowHealth = false;
     public bool lowAmmo = false;
+    public bool chatting = false;
+    public bool chat = false;
+
+    private List<string> chats = new List<string>(){"Hey!", "Grog is hungry...", "Grog is displeased.", "Join the Nintendo fan club today!", "Knock knock!", "Who\'s there?", "Grog.", "Grog who?", "Grog is groggy!!!", "Grog reccomends running.", "Sign on now for a $100 bonus!", "You should thank Grog.", "Drink some milk.", "Grog bets you don\'t like cheese.", "And now a word from Grog\'s sponsor...", "ABCDEFG...", "Is it hot? Or is it just Grog?", "Hey, listen!", "Why'd you get hit??", "Grog has some notes."};
 
     void Awake()
     {
@@ -24,6 +28,7 @@ public class Grog : MonoBehaviour
     void Start()
     {
         InvokeRepeating("ChangeBubble", 0, 0.3f);
+        InvokeRepeating("ChatWrapper", 0, 5.0f);
     }
 
     // Update is called once per frame
@@ -58,6 +63,9 @@ public class Grog : MonoBehaviour
             Speech.text = "You\'re low on ammo! Better find some quick!";
         }
 
+        else if(chatting)
+            return;
+
         else
         {
             if(Bubble.activeSelf)
@@ -65,5 +73,39 @@ public class Grog : MonoBehaviour
             Speech.text = null;
         }
 
+    }
+
+    void ChatWrapper()
+    {
+        chat = !chat;
+        if(chat)
+        {
+            GetChatty();
+        }
+
+        else
+        {
+            chatting = false;
+            if(!lowHealth && !lowAmmo)
+            {
+                if(Bubble.activeSelf)
+                    Bubble.SetActive(false);
+                Speech.text = null;
+            }
+        }
+    }
+    
+    void GetChatty()
+    {
+        if(!lowHealth && !lowAmmo)
+        {
+            chatting = true;
+
+            if(!Bubble.activeSelf)
+                Bubble.SetActive(true);
+            
+            
+            Speech.text = chats[Random.Range(0, chats.Count)];
+        }
     }
 }

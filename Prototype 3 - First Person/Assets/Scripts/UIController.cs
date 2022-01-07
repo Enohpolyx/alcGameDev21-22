@@ -75,7 +75,7 @@ public class UIController : MonoBehaviour
         endGameScreen.SetActive(true);
         endGameHeaderText.text = won == true? "You Win" : "You Lose!";
         endGameHeaderText.color = won == true? Color.green : Color.red;
-        endGameScoreText.text = "<b>Score</b>\n" + score.ToString();
+        endGameScoreText.text = "Score: " + score.ToString();
     }
 
     public void OnResumeButton()
