@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
             Ded();
     }
 
-    void Ded()
+    public void Ded()
     {
         GameManager.instance.LoseGame();
     }

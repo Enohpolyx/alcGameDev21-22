@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Prezzie
   - Eye
+  - Boss
+  - BossEye
+  - BattleZone
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,10 @@ public class UIController : MonoBehaviour
         public TextMeshProUGUI ammoText;
         public Image healthBarFill;
 
+        public GameObject BossBattle;
+        public Image bossHealthBarFill;
+        public Image bossHeathBar;
+
     [Header("Pause Menu")]
         public GameObject pauseMenu;
 
@@ -50,9 +54,20 @@ public class UIController : MonoBehaviour
         healthBarFill.fillAmount -= toDecrease/100f;
     }
 
+    public void DecreaseBossHPFill(int toDecrease)
+    {
+        //healthBarFill.fillAmount = curHP / maxHP;
+        bossHealthBarFill.fillAmount -= toDecrease/200f;
+    }
+
     public void IncreaseHPFill(int toIncrease)
     {
         healthBarFill.fillAmount += toIncrease/100f;
+    }
+
+    public void IncreaseBossHPFill(int toIncrease)
+    {
+        bossHealthBarFill.fillAmount += toIncrease/100f;
     }
 
     public void UpdateScoreText(int score)
@@ -91,5 +106,10 @@ public class UIController : MonoBehaviour
     public void OnMenuButton()
     {
         SceneManager.LoadScene("Menu");
+    }
+
+    public void BossTime()
+    {
+        BossBattle.SetActive(true);
     }
 }

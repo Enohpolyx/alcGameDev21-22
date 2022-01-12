@@ -9,6 +9,7 @@ public class ProjectileController : MonoBehaviour
     private float shootTime;
 
     public GameObject hitParticle;
+    public GameObject BossCritParticle;
 
 
     void OnEnable()
@@ -26,12 +27,15 @@ public class ProjectileController : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-    //Create hit particle effect
-    GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
-    //Destroy particle effect after .5 seconds
-    Destroy(obj, 0.5f);
+    if(!other.gameObject.CompareTag("BattleZone"))
+        {
+        //Create hit particle effect
+        GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+        //Destroy particle effect after .5 seconds
+        Destroy(obj, 0.5f);
+        }
 
-    
+
     //Detect which object is hit
     if(other.gameObject.CompareTag("Player"))
         {
@@ -57,12 +61,28 @@ public class ProjectileController : MonoBehaviour
         gameObject.SetActive(false);
         }
     
-    //Broken
-    // else if(other.gameObject.CompareTag("Eye"))
-    //     other.GetComponentInParent<EnemyController>().TakeDamage(damage*2);
+    else if(other.CompareTag("Boss"))
+        {
+        other.GetComponent<BossController>().TakeDamage(damage);
+        gameObject.SetActive(false);
+        }
 
-    // else
-    //     gameObject.SetActive(false);
+    else if(other.CompareTag("BossEye"))
+        {
+        other.GetComponentInParent<BossController>().TakeDamage(damage*3);
+        GameObject obj = Instantiate(BossCritParticle, transform.position, Quaternion.identity);
+        //Destroy particle effect after .5 seconds
+        Destroy(obj, 0.5f);
+        gameObject.SetActive(false);
+        }
+    
+    else if(other.gameObject.CompareTag("Eye"))
+        other.GetComponentInParent<EnemyController>().TakeDamage(damage*2);
+
+    else if(other.gameObject.CompareTag("BattleZone")){}
+
+    else
+        gameObject.SetActive(false);
     }
 
 }

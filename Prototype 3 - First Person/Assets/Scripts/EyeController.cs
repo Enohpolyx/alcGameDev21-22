@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EyeController : MonoBehaviour
 {
+    public GameObject hitParticle;
     private void Awake()
     {
         
@@ -26,5 +27,10 @@ public class EyeController : MonoBehaviour
         if(other.gameObject.CompareTag("Projectile"))
             GetComponentInParent<EnemyController>().TakeDamage(other.GetComponent<ProjectileController>().damage*2);
             //other.setActive(false);
+
+        //Create hit particle effect
+        GameObject obj = Instantiate(hitParticle, transform.position, Quaternion.identity);
+        //Destroy particle effect after 1 second
+        Destroy(obj, 1.0f);
     }
 }

@@ -128,3 +128,4 @@ MonoBehaviour:
   damage: 1
   lifetime: 1
   hitParticle: {fileID: 3235875308934910035, guid: 62ee7fb20040e496fb4b03be11938ed0, type: 3}
+  BossCritParticle: {fileID: 4310875466509491990, guid: d7b289ae86474fe4f94b682e0a38b222, type: 3}

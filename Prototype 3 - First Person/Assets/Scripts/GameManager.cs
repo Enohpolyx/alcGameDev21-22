@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
     public int curScore;
 
     public bool gamePaused;
+    public bool pausable = true;
 
     private AudioSource audioSource;
+    public AudioSource endAudioSource;
     public AudioClip pauseSFX;
     
     // Instance of Game Manager
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Cancel"))
+        if(Input.GetButtonDown("Cancel") && pausable)
         {
             TogglePauseGame();
         }
@@ -65,24 +67,30 @@ public class GameManager : MonoBehaviour
         UIController.instance.UpdateScoreText(curScore);
 
         // Did ya win yet?
-        if(curScore >= scoreToWin)
-            WinGame();
+        // if(curScore >= scoreToWin)
+        //     WinGame();
     }
 
     public void WinGame()
     {
         // Set the screen
+        pausable = false;
         UIController.instance.SetEndGameScreen(true, curScore);    
         Time.timeScale = 0.0f;
         gamePaused = true;
         Cursor.lockState = CursorLockMode.None;
+        audioSource.Stop();
+        endAudioSource.Play();
     }
 
     public void LoseGame()
     {
+        pausable = false;
         UIController.instance.SetEndGameScreen(false, curScore);
         Time.timeScale = 0.0f;
         gamePaused = true;
         Cursor.lockState = CursorLockMode.None;
+        audioSource.Stop();
+        endAudioSource.Play();
     }
 }
