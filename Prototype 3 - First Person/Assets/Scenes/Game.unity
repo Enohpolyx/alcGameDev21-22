@@ -2300,7 +2300,7 @@ GameObject:
   - component: {fileID: 580185610}
   m_Layer: 0
   m_Name: Lefty
-  m_TagString: Untagged
+  m_TagString: BattleZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5431,7 +5431,7 @@ GameObject:
   - component: {fileID: 1262623210}
   m_Layer: 0
   m_Name: Righty
-  m_TagString: Untagged
+  m_TagString: BattleZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7700,7 +7700,7 @@ GameObject:
   - component: {fileID: 1847539342}
   m_Layer: 0
   m_Name: MuzzleL
-  m_TagString: Untagged
+  m_TagString: BattleZone
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9185,7 +9185,7 @@ GameObject:
   - component: {fileID: 2088801911}
   m_Layer: 0
   m_Name: MuzzleR
-  m_TagString: Untagged
+  m_TagString: BattleZone
   m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

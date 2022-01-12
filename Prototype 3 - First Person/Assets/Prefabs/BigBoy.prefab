@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5815615182310203095}
   m_Layer: 0
   m_Name: Lefty
-  m_TagString: Untagged
+  m_TagString: BattleZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +366,7 @@ GameObject:
   - component: {fileID: 4949960619537915335}
   m_Layer: 0
   m_Name: Eye
-  m_TagString: Eye
+  m_TagString: BossEye
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 1
@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8ce9de33b6842ffbefebf2ab3c06f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitParticle: {fileID: 0}
 --- !u!1 &5815615182696647488
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +472,7 @@ GameObject:
   - component: {fileID: 5815615182696647491}
   m_Layer: 0
   m_Name: MuzzleL
-  m_TagString: Untagged
+  m_TagString: BattleZone
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
